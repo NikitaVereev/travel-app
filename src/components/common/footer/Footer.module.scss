@@ -1,0 +1,67 @@
+@import '../../../../styles/variables';
+.footer {
+	position: fixed;
+	bottom: 10px;
+	left: 0;
+	width: 100%;
+	> nav {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		> ul {
+			> li {
+				margin: 0 2rem;
+				position: relative;
+				> button {
+					color: $white;
+					transition: 0.5s ease;
+					padding: 10px;
+					border-radius: 50%;
+					background: transparent;
+					&:hover,
+					&.active {
+						color: $accent;
+						transform: translateY(-5px);
+						&::before {
+							bottom: 0;
+							width: 100%;
+							border-radius: 2px;
+							animation: slowWidth 1s ease;
+						}
+					}
+
+					&::before {
+						content: '';
+						transition: 0.5s ease;
+						position: absolute;
+
+						width: 5px;
+						height: 3px;
+						border-radius: 50%;
+						background-color: $accent;
+						bottom: -50px;
+						left: 50%;
+						transform: translateX(-50%);
+					}
+					> span {
+						z-index: 10;
+						font-size: 2rem;
+						position: relative;
+					}
+				}
+			}
+		}
+	}
+}
+
+@keyframes slowWidth {
+	0% {
+		width: 5px;
+	}
+	50% {
+		width: 5px;
+	}
+	100% {
+		width: 100%;
+	}
+}
