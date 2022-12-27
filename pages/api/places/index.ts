@@ -1,14 +1,14 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { IPlace } from '../../src/types/place.interface'
+import { IPlace } from '../../../src/types/place.interface'
 import tokyo from 'public/image/tokyo.jpg'
 import newYork from 'public/image/new-york.jpg'
 import sweden from 'public/image/sweden.jpg'
 import rome from 'public/image/rome.jpg'
 
-const places: IPlace[] = [
+export const places: IPlace[] = [
 	{
-		slug: 'kyoto',
+		slug: 'tokyo',
 		description:
 			'After a pair of quiet years, Japan has reopened its borders, and Tokyo’s distinct energy is back in full force. There`s so much to see, including new shopping megaplexes, elegant hotels, and restaurants with rising-star chefs at their helms. Locals and visitors are once again rushing to futuristic skyscrapers and the famous Shibuya Crossing, an intersection that`s so lively, it feels like a flash mob. But these places are a bit less hectic in winter and early spring. Even better, March and April bring cherry blossom season, when the whole city slows down to stroll past thousands of pink blossoms. You can find other quiet moments in ancient Buddhist temples and peaceful gardens, or those secret ramen counters, chill record bars, and other little gems often hiding in plain sight.',
 		imagePath: tokyo.src,

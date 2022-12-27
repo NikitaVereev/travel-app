@@ -1,37 +1,58 @@
 import { FC, useState } from 'react'
 import styles from './Filters.module.scss'
 import cn from 'classnames'
+import { IPlace } from '../../../types/place.interface'
+import { TypeSetState } from '../../../types/common'
 
-const cities = [
+const countries = [
 	{
-		location: 'Paris',
+		location: 'France',
 	},
 	{
-		location: 'Bora Bora',
+		location: 'Japan',
 	},
 	{
-		location: 'Maui',
+		location: 'Russia',
 	},
 	{
-		location: 'Tahiti',
+		location: 'USA',
 	},
 	{
-		location: 'Brazil',
+		location: 'Italy',
 	},
 	{
 		location: 'Norway',
 	},
 ]
 
-const FIlters: FC = () => {
+interface IFilters {
+	setPlaces: TypeSetState<IPlace[]>
+	initialPlaces: IPlace[]
+}
+
+const FIlters: FC<IFilters> = ({ setPlaces, initialPlaces }) => {
 	const [filter, setFilter] = useState('')
+
+	const handleFilter = (location: string) => {
+		if (filter === location) {
+			setPlaces(initialPlaces)
+			setFilter('')
+		} else {
+			setFilter(location)
+			setPlaces(
+				initialPlaces.filter(
+					item => item.location.country.toLowerCase() === location.toLowerCase()
+				)
+			)
+		}
+	}
 
 	return (
 		<div className={styles.wrapper}>
-			{cities.map(item => (
+			{countries.map(item => (
 				<button
 					className={cn({ [styles.active]: item.location === filter })}
-					onClick={() => setFilter(item.location)}
+					onClick={() => handleFilter(item.location)}
 					key={item.location}
 				>
 					{item.location}

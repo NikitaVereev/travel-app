@@ -16,7 +16,7 @@ const HomePage: NextPage<IHome> = ({ places }) => {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-	const result = await fetch('http://localhost:3000/api/places')
+	const result = await fetch('http://localhost:3000//api/places')
 	const places: IPlace[] = await result.json()
 	return {
 		props: {

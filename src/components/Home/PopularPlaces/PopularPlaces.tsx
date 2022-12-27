@@ -63,37 +63,43 @@ const PopularPlaces: FC<IPopularPlaces> = ({
 						>
 							filter_alt
 						</span>
-						{showFilter && <FIlters />}
+						{showFilter && (
+							<FIlters setPlaces={setPlaces} initialPlaces={initialPlaces} />
+						)}
 					</motion.div>
 				</div>
 			</div>
 
 			<div className={styles.itemWrapper}>
-				{places.map((item, index) => (
-					<motion.div
-						key={item.slug}
-						className={styles.item}
-						variants={fadeIn('right', 'spring', index * 0.3, 0.75)}
-					>
-						<div className={styles.itemImage}>
-							<Image
-								src={item.imagePath}
-								alt={item.location.city}
-								layout='fill'
-							/>
-							<Link href={item.slug}></Link>
-						</div>
-						<div className={styles.itemHeading}>
-							<h4>{`${item.location.city}, ${item.location.country}`}</h4>
-							<div>
-								<p>
-									{item.description.slice(0, 80)}...
-									<Link href={item.slug}>Readmore</Link>
-								</p>
+				{places.length !== 0 ? (
+					places.map((item, index) => (
+						<motion.div
+							key={item.slug}
+							className={styles.item}
+							// variants={fadeIn('right', 'spring', index * 0.3, 0.75)}
+						>
+							<div className={styles.itemImage}>
+								<Image
+									src={item.imagePath}
+									alt={item.location.city}
+									layout='fill'
+								/>
+								<Link href={`/place/${item.slug}`}></Link>
 							</div>
-						</div>
-					</motion.div>
-				))}
+							<div className={styles.itemHeading}>
+								<h4>{`${item.location.city}, ${item.location.country}`}</h4>
+								<div>
+									<p>
+										{item.description.slice(0, 80)}...
+										<Link href={`/place/${item.slug}`}>Readmore</Link>
+									</p>
+								</div>
+							</div>
+						</motion.div>
+					))
+				) : (
+					<h1>Ничего подобного нету!)</h1>
+				)}
 			</div>
 		</motion.div>
 	)
