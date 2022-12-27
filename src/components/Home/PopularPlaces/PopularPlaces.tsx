@@ -1,8 +1,16 @@
+import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
 import { FC, useState } from 'react'
 import { IPlace } from '../../../types/place.interface'
 import Search, { ISearch } from '../../ui/Search/Search'
+import {
+	fadeIn,
+	staggerContainer,
+	textContainer,
+	textVariant,
+	textVariant2,
+} from '../../utils/motion'
 import FIlters from '../Filters/FIlters'
 import styles from './PopularPlaces.module.scss'
 
@@ -18,19 +26,36 @@ const PopularPlaces: FC<IPopularPlaces> = ({
 	const [showFilter, setShowFilter] = useState(false)
 
 	return (
-		<div className='wrapper'>
+		<motion.div
+			className='wrapper'
+			variants={staggerContainer()}
+			initial='hidden'
+			whileInView='show'
+			viewport={{ once: false, amount: 0.25 }}
+		>
 			<div className={styles.heading}>
 				<div className={styles.left}>
-					<span>Destination</span>
-					<h2>Our Best Destination For You</h2>
+					<motion.span variants={textContainer}>
+						{Array.from(`Destination`).map((letter, index) => (
+							<motion.span variants={textVariant2} key={index}>
+								{letter === ' ' ? '\u00A0' : letter}
+							</motion.span>
+						))}
+					</motion.span>
+					<motion.h2 variants={fadeIn('right', 'tween', 0.2, 1)}>
+						Our Best Destination For You
+					</motion.h2>
 				</div>
 				<div>
-					<p>
+					<motion.p variants={fadeIn('left', 'tween', 0.7, 1)}>
 						With a world full of fascinating destinations, choosing the perfect
 						vacation spot can present a challenge. That`s why Travely to compile
 						this list of the world`s best places to visit
-					</p>
-					<div className={styles.filter}>
+					</motion.p>
+					<motion.div
+						className={styles.filter}
+						variants={fadeIn('down', 'tween', 0.2, 1)}
+					>
 						<Search setPlaces={setPlaces} initialPlaces={initialPlaces} />
 						<span
 							className='material-icons-outlined'
@@ -39,13 +64,17 @@ const PopularPlaces: FC<IPopularPlaces> = ({
 							filter_alt
 						</span>
 						{showFilter && <FIlters />}
-					</div>
+					</motion.div>
 				</div>
 			</div>
 
 			<div className={styles.itemWrapper}>
-				{places.map(item => (
-					<div key={item.slug} className={styles.item}>
+				{places.map((item, index) => (
+					<motion.div
+						key={item.slug}
+						className={styles.item}
+						variants={fadeIn('right', 'spring', index * 0.3, 0.75)}
+					>
 						<div className={styles.itemImage}>
 							<Image
 								src={item.imagePath}
@@ -63,10 +92,10 @@ const PopularPlaces: FC<IPopularPlaces> = ({
 								</p>
 							</div>
 						</div>
-					</div>
+					</motion.div>
 				))}
 			</div>
-		</div>
+		</motion.div>
 	)
 }
 
