@@ -1,7 +1,7 @@
-import { FC } from 'react'
+import { NextPage } from 'next'
 
-const explore: FC = () => {
-	return <div>explore</div>
+const ExplorePage: NextPage = () => {
+	return <div>ExplorePage</div>
 }
 
-export default explore
+export default ExplorePage

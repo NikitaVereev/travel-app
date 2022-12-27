@@ -1,0 +1,124 @@
+@import '../../../../styles//variables';
+
+.heading {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	margin-bottom: 80px;
+	> div {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: flex-start;
+		max-width: 50%;
+		> p {
+			color: $white;
+			text-align: right;
+			margin-bottom: 15px;
+		}
+		.filter {
+			display: flex;
+			align-items: center;
+			position: relative;
+			width: 100%;
+			> span {
+				background-color: rgba(255, 255, 255, 0.07);
+				border-radius: 10px;
+				border-top-left-radius: 0;
+				border-bottom-left-radius: 0;
+				padding: 0.5rem;
+				font-size: 22px;
+				margin-right: 10px;
+				color: #e8e8e8;
+
+				transition: 0.5s ease;
+				cursor: pointer;
+				&:hover {
+					color: $white;
+				}
+			}
+		}
+	}
+	.left {
+		> span {
+			color: #239d57;
+			width: 160px;
+			font-size: 16px;
+			line-height: 40px;
+			height: 40px;
+			text-align: center;
+			background: #13221d;
+			display: block;
+			border: 1px solid #111818;
+			margin-bottom: 20px;
+		}
+		> h2 {
+			font-size: 40px;
+			font-weight: 500;
+			max-width: 400px;
+			line-height: 45px;
+		}
+	}
+}
+
+.item {
+	max-width: 300px;
+	width: 100%;
+}
+.itemWrapper {
+	display: flex;
+	gap: 30px;
+	.item {
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+		&:nth-child(2n) {
+			flex-direction: column-reverse;
+		}
+		.itemImage {
+			position: relative;
+			width: 100%;
+			height: 450px;
+			border-radius: 10px;
+			overflow: hidden;
+			&::before {
+				content: '';
+				position: absolute;
+				inset: 0;
+				background: radial-gradient(transparent, rgba(0, 0, 0, 0.9));
+				width: 100%;
+				height: 100%;
+				z-index: 1;
+			}
+			> a {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				inset: 0;
+				z-index: 10;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+			> img {
+				width: 100%;
+				object-fit: cover;
+			}
+		}
+		.itemHeading {
+			h4 {
+				font-size: 20px;
+				font-weight: 900;
+				margin-bottom: 15px;
+			}
+			p {
+				color: $white;
+				font-weight: 500;
+				> a {
+					color: #fff;
+					margin-left: 5px;
+				}
+			}
+		}
+	}
+}

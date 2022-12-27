@@ -1,7 +1,7 @@
-import { FC } from 'react'
+import { NextPage } from 'next'
 
-const profile: FC = () => {
-	return <div>profile</div>
+const ProfilePage: NextPage = () => {
+	return <div>ProfilePage</div>
 }
 
-export default profile
+export default ProfilePage

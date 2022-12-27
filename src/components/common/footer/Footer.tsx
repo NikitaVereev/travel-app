@@ -3,22 +3,32 @@ import { useRouter } from 'next/router'
 import { FC } from 'react'
 import styles from './Footer.module.scss'
 
-const navItem = [
+type TypeNavItem = {
+	icon: string
+	link: string
+	title: string
+}
+
+const navItem: TypeNavItem[] = [
 	{
 		icon: 'home',
 		link: '/',
+		title: 'Home',
 	},
 	{
 		icon: 'explore',
 		link: '/explore',
+		title: 'Explore',
 	},
 	{
 		icon: 'place',
-		link: '/place',
+		link: '/place/tokio',
+		title: 'Place',
 	},
 	{
 		icon: 'person',
 		link: '/profile',
+		title: 'Profile',
 	},
 ]
 
@@ -34,7 +44,7 @@ const Footer: FC = () => {
 								onClick={() => push(item.link)}
 								className={pathname === item.link ? styles.active : ''}
 							>
-								<span className='material-icons-outlined'>{item.icon}</span>
+								<span className={styles.title}>{item.title}</span>
 							</button>
 						</li>
 					))}
