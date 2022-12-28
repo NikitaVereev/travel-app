@@ -13,4 +13,5 @@ export interface IPlace {
 	distance: number
 	googleMapLink: string
 	mapImage: string
+	bigImage: string
 }

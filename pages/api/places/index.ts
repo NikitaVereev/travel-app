@@ -5,6 +5,7 @@ import tokyo from 'public/image/tokyo.jpg'
 import newYork from 'public/image/new-york.jpg'
 import sweden from 'public/image/sweden.jpg'
 import rome from 'public/image/rome.jpg'
+import bigNewYork from 'public/image/bigNewYork.jpg'
 
 export const places: IPlace[] = [
 	{
@@ -23,6 +24,7 @@ export const places: IPlace[] = [
 		slug: 'new-york',
 		description:
 			'The tallest buildings, biggest museums, and best pizza—NYC is a city of superlatives, and it lives up to every one of them. From the dazzling spectacle of Broadway to MoMA’s world-class galleries, the boutiques of SoHo, and the array of restaurants offering cuisines from every corner of the world, there’s a different New York to discover every time you visit. Beyond those iconic landmarks, though, New York’s secret side awaits. You’re likely to stumble upon indie vintage shops and locals-only brunch spots even on the shortest of strolls. And when the crowds and noise are too much to take, just look up—that skyline will remind you why you came in the first place.',
+		bigImage: bigNewYork.src,
 		imagePath: newYork.src,
 		location: { city: 'New York', country: 'USA' },
 		rating: 5,

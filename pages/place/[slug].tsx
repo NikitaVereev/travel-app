@@ -1,13 +1,14 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import { useRouter } from 'next/router'
+import SinglePlace from '../../src/components/Place/SenglePlace/SinglePlace'
 import { IPlace } from '../../src/types/place.interface'
 
-interface IPlacePage {
+export interface IPlacePage {
 	place: IPlace
 }
 
 const PlacePage: NextPage<IPlacePage> = ({ place }) => {
-	return <div>PlacePage {place.slug} </div>
+	return <SinglePlace place={place} />
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
