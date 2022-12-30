@@ -15,3 +15,8 @@ export interface IPlace {
 	mapImage: string
 	bigImage: string
 }
+
+export interface IFavorite {
+	slug: string
+	name: string
+}

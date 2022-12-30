@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import Footer from '../footer/Footer'
+import Header from '../footer/Header'
 
 type Props = {
 	children?: React.ReactNode
@@ -9,7 +9,7 @@ const Layout: FC<Props> = ({ children }) => {
 	return (
 		<>
 			<div>{children}</div>
-			<Footer />
+			<Header />
 		</>
 	)
 }

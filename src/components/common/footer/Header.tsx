@@ -1,7 +1,8 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { FC } from 'react'
-import styles from './Footer.module.scss'
+
+import styles from './Header.module.scss'
 
 type TypeNavItem = {
 	icon: string
@@ -26,6 +27,11 @@ const navItem: TypeNavItem[] = [
 		title: 'Place',
 	},
 	{
+		icon: 'bookmark',
+		link: 'favorites',
+		title: 'Favorite',
+	},
+	{
 		icon: 'person',
 		link: '/profile',
 		title: 'Profile',
@@ -35,7 +41,7 @@ const navItem: TypeNavItem[] = [
 const Footer: FC = () => {
 	const { push, pathname } = useRouter()
 	return (
-		<footer className={styles.footer}>
+		<footer className={styles.header}>
 			<nav>
 				<ul>
 					{navItem.map(item => (

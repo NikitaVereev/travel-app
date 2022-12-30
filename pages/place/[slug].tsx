@@ -15,7 +15,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 	const res = await fetch('http://localhost:3000/api/places')
 	const places = await res.json()
 
-	const paths = places.map(post => ({
+	const paths = places.map((post: any) => ({
 		params: { slug: post.slug },
 	}))
 
