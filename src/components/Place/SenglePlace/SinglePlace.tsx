@@ -3,6 +3,7 @@ import { FC } from 'react'
 import { IPlacePage } from '../../../../pages/place/[slug]'
 import styles from './SinglePlace.module.scss'
 import cn from 'classnames'
+import Map from '../../common/map/Map'
 
 const SinglePlace: FC<IPlacePage> = ({ place }) => {
 	return (
@@ -25,6 +26,9 @@ const SinglePlace: FC<IPlacePage> = ({ place }) => {
 						/>
 					</div>
 				</div>
+			</div>
+			<div className={styles.map}>
+				<Map location={place.location} />
 			</div>
 		</div>
 	)

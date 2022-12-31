@@ -1,6 +1,7 @@
-type TypeLocation = {
+export type TypeLocation = {
 	city: string
 	country: string
+	region: string
 }
 
 export interface IPlace {

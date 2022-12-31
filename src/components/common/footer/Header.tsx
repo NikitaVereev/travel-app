@@ -28,8 +28,13 @@ const navItem: TypeNavItem[] = [
 	},
 	{
 		icon: 'bookmark',
-		link: 'favorites',
+		link: '.favorites',
 		title: 'Favorite',
+	},
+	{
+		icon: 'hotel',
+		link: '/hotels',
+		title: 'Hotels',
 	},
 	{
 		icon: 'person',
