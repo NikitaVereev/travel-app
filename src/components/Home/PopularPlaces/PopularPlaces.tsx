@@ -72,9 +72,9 @@ const PopularPlaces: FC<IPopularPlaces> = ({
 
 			<div className={styles.itemWrapper}>
 				{places.length !== 0 ? (
-					places.map((item, index) => (
+					places.map(item => (
 						<motion.div
-							key={item.slug}
+							key={item._id}
 							className={styles.item}
 							// variants={fadeIn('right', 'spring', index * 0.3, 0.75)}
 						>

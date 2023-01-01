@@ -3,6 +3,7 @@ import styles from './Filters.module.scss'
 import cn from 'classnames'
 import { IPlace } from '@/types/place.interface'
 import { TypeSetState } from '@/types/common'
+import uniqBy from 'lodash/uniqBy'
 
 const countries = [
 	{
@@ -49,15 +50,18 @@ const FIlters: FC<IFilters> = ({ setPlaces, initialPlaces }) => {
 
 	return (
 		<div className={styles.wrapper}>
-			{countries.map(item => (
-				<button
-					className={cn({ [styles.active]: item.location === filter })}
-					onClick={() => handleFilter(item.location)}
-					key={item.location}
-				>
-					{item.location}
-				</button>
-			))}
+			{uniqBy(initialPlaces, 'location.country').map(item => {
+				const location = item.location.country
+				return (
+					<button
+						className={cn({ [styles.active]: location === filter })}
+						onClick={() => handleFilter(location)}
+						key={location}
+					>
+						{location}
+					</button>
+				)
+			})}
 		</div>
 	)
 }
