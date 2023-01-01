@@ -1,7 +1,10 @@
 export type TypeLocation = {
 	city: string
 	country: string
-	region: string
+	coordinates: {
+		x: number
+		y: number
+	}
 }
 
 export interface IPlace {

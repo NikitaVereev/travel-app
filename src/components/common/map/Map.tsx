@@ -3,7 +3,7 @@ import {
 	ComposableMap,
 	Geographies,
 	Geography,
-	ZoomableGroup,
+	Annotation,
 } from 'react-simple-maps'
 import { TypeLocation } from '../../../types/place.interface'
 import cn from 'classnames'
@@ -45,6 +45,26 @@ const Map: FC<{ location: TypeLocation }> = ({ location }) => {
 						})
 					}
 				</Geographies>
+				<Annotation
+					subject={[40, 74]}
+					dx={-5}
+					dy={-5}
+					connectorProps={{
+						stroke: '#fff',
+						strokeWidth: 0.3,
+						strokeLinecap: 'round',
+					}}
+				>
+					<text
+						x='-1'
+						textAnchor='end'
+						alignmentBaseline='middle'
+						fill='#fff'
+						style={{ fontSize: 4 }}
+					>
+						{location.city}
+					</text>
+				</Annotation>
 			</ComposableMap>
 		</div>
 	)
