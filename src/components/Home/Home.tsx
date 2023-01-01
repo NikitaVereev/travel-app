@@ -1,5 +1,5 @@
 import { FC, useState } from 'react'
-import { IPlace } from '../../types/place.interface'
+import { IPlace } from '@/types/place.interface'
 import PopularPlaces from './PopularPlaces/PopularPlaces'
 import SearchSection from './SearchSection/SearchSection'
 interface IHome {

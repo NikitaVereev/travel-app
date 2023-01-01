@@ -2,7 +2,7 @@ import Image from 'next/image'
 import { FC } from 'react'
 import styles from './SearchSection.module.scss'
 import { motion } from 'framer-motion'
-import { slideIn, staggerContainer, textVariant } from '../../utils/motion'
+import { slideIn, staggerContainer, textVariant } from '@/utils/motion'
 
 const SearchSection: FC = () => {
 	return (

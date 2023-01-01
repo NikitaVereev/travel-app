@@ -1,11 +1,11 @@
-import { FC } from 'react'
+import { FC, useState } from 'react'
 import {
 	ComposableMap,
 	Geographies,
 	Geography,
 	Annotation,
 } from 'react-simple-maps'
-import { TypeLocation } from '../../../types/place.interface'
+import { TypeLocation } from '@/types/place.interface'
 import cn from 'classnames'
 
 import styles from './Map.module.scss'
@@ -13,6 +13,17 @@ import styles from './Map.module.scss'
 const Map: FC<{ location: TypeLocation }> = ({ location }) => {
 	const geoUrl =
 		'https://raw.githubusercontent.com/deldersveld/topojson/master/world-countries.json'
+
+	const markersBegin = [
+		{
+			markerOffset: -30,
+			name: 'Buenos Aires',
+			coordinates: [-58.3816, -34.6037],
+		},
+	]
+
+	const [scale, setSclae] = useState(1)
+	const [markers, setMarkers] = useState(markersBegin)
 	return (
 		<div className={cn(styles.map, 'wrapper')}>
 			<ComposableMap
@@ -23,8 +34,8 @@ const Map: FC<{ location: TypeLocation }> = ({ location }) => {
 				height={180}
 			>
 				<Geographies geography={geoUrl}>
-					{({ geographies }) =>
-						geographies.map(geo => {
+					{({ geographies }: any) =>
+						geographies.map((geo: any) => {
 							const isCurrent =
 								geo.properties.name === location.country ||
 								geo.id === location.country
@@ -45,8 +56,9 @@ const Map: FC<{ location: TypeLocation }> = ({ location }) => {
 						})
 					}
 				</Geographies>
+
 				<Annotation
-					subject={[40, 74]}
+					subject={[location.coordinates.y, location.coordinates.x]}
 					dx={-5}
 					dy={-5}
 					connectorProps={{

@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { FC } from 'react'
-import { IFavorite } from '../../../types/place.interface'
+import { IFavorite } from '@/types/place.interface'
 
 import stules from './Header.module.scss'
 

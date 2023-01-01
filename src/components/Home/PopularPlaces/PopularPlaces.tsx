@@ -2,15 +2,15 @@ import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
 import { FC, useState } from 'react'
-import { IPlace } from '../../../types/place.interface'
-import Search, { ISearch } from '../../ui/Search/Search'
+import { IPlace } from '@/types/place.interface'
+import Search, { ISearch } from '@/ui/Search/Search'
 import {
 	fadeIn,
 	staggerContainer,
 	textContainer,
 	textVariant,
 	textVariant2,
-} from '../../utils/motion'
+} from '@/utils/motion'
 import FIlters from '../Filters/FIlters'
 import styles from './PopularPlaces.module.scss'
 

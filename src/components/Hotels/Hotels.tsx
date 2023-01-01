@@ -18,7 +18,7 @@ export default function Hotels() {
 			console.log(error)
 		}
 	}
-	const callAPI = async e => {
+	const callAPI = async (e: any) => {
 		e.preventDefault()
 		try {
 			const res = await axios.get('api/hotels/', {})

@@ -20,7 +20,7 @@ export const places: IPlace[] = [
 		location: {
 			city: 'Tokyo',
 			country: 'Japan',
-			coordinates: { x: 43.2994285, y: -74.2179326 },
+			coordinates: { x: 35.6895, y: 139.692 },
 		},
 		rating: 5,
 		duration: '10 days',
@@ -37,7 +37,7 @@ export const places: IPlace[] = [
 		location: {
 			city: 'New York',
 			country: 'USA',
-			coordinates: { x: 43.2994285, y: -74.2179326 },
+			coordinates: { x: 40.7143, y: -74.006 },
 		},
 		rating: 5,
 		duration: '2 days',
@@ -54,7 +54,7 @@ export const places: IPlace[] = [
 		location: {
 			city: 'Rome',
 			country: 'Italy',
-			coordinates: { x: 43.2994285, y: -74.2179326 },
+			coordinates: { x: 41.8919, y: 12.5113 },
 		},
 		rating: 5,
 		duration: '2 days',
@@ -71,7 +71,7 @@ export const places: IPlace[] = [
 		location: {
 			city: 'Stockholm',
 			country: 'Sweden',
-			coordinates: { x: 43.2994285, y: -74.2179326 },
+			coordinates: { x: 59.3326, y: 18.0649 },
 		},
 		rating: 5,
 		duration: '2 days',
