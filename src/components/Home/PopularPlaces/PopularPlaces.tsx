@@ -71,7 +71,7 @@ const PopularPlaces: FC<IPopularPlaces> = ({
 			</div>
 
 			<div className={styles.itemWrapper}>
-				{places.length !== 0 ? (
+				{places ? (
 					places.map(item => (
 						<motion.div
 							key={item._id}
