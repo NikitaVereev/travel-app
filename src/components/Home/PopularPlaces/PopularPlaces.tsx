@@ -13,6 +13,7 @@ import {
 } from '@/utils/motion'
 import FIlters from '../Filters/FIlters'
 import styles from './PopularPlaces.module.scss'
+import { urlFor } from '@/pages/api/sanity2'
 
 interface IPopularPlaces extends ISearch {
 	places: IPlace[]
@@ -79,8 +80,8 @@ const PopularPlaces: FC<IPopularPlaces> = ({
 							// variants={fadeIn('right', 'spring', index * 0.3, 0.75)}
 						>
 							<div className={styles.itemImage}>
-								<Image
-									src={item.imagePath}
+								<img
+									src={urlFor(item.imagePath).url()}
 									alt={item.location.city}
 									layout='fill'
 								/>

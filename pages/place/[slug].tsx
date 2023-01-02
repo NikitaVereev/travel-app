@@ -1,4 +1,4 @@
-import { sanityClient } from '../../src/sanity2'
+import { sanityClient } from '../api/sanity2'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import { useRouter } from 'next/router'
 import SinglePlace from '../../src/components/Place/SenglePlace/SinglePlace'

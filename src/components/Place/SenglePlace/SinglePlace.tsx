@@ -4,6 +4,7 @@ import { IPlacePage } from '@/pages/place/[slug]'
 import styles from './SinglePlace.module.scss'
 import cn from 'classnames'
 import Map from '@/common/map/Map'
+import { urlFor } from '@/pages/api/sanity2'
 
 const SinglePlace: FC<IPlacePage> = ({ place }) => {
 	return (
@@ -20,7 +21,7 @@ const SinglePlace: FC<IPlacePage> = ({ place }) => {
 					</div>
 					<div className={styles.image}>
 						<Image
-							src={place.imagePath}
+							src={urlFor(place.imagePath).url()}
 							alt={place.location.city}
 							layout='fill'
 						/>

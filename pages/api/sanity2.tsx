@@ -7,8 +7,7 @@ export const config: ClientConfig = {
 	projectId: 'rttcnujz',
 	dataset: 'production',
 	apiVersion: '2021-10-21',
-
-	useCdn: false,
+	useCdn: typeof document !== 'undefined',
 }
 
 export const sanityClient = createClient(config)
