@@ -1,13 +1,13 @@
 import { GetServerSideProps, GetStaticProps, NextPage } from 'next'
 import { sanityClient } from './api/sanity2'
 
-import Home from '../src/components/Home/Home'
+import Home from '../src/components/screens/Home/Home'
 import { IPlace } from '../src/types/place.interface'
-import { queries } from 'queryis'
+
 import { client } from '../lib/sanity.client'
 import { createClient } from 'next-sanity'
 
-const query = `*[_type == "place"]`
+import { queries } from '../src/queryis'
 
 interface IHome {
 	places: IPlace[]
@@ -22,7 +22,7 @@ const HomePage: NextPage<IHome> = ({ places }) => {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-	const result = await sanityClient.fetch(query)
+	const result = await sanityClient.fetch(queries.getPlaces)
 
 	return {
 		props: {

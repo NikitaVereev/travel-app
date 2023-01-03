@@ -84,14 +84,14 @@ const PopularPlaces: FC<IPopularPlaces> = ({
 									src={urlFor(item.imagePath).url()}
 									alt={item.location.city}
 								/>
-								<Link href={`/place/${item.slug}`}></Link>
+								<Link href={`/place/${item.slug.current}`}></Link>
 							</div>
 							<div className={styles.itemHeading}>
 								<h4>{`${item.location.city}, ${item.location.country}`}</h4>
 								<div>
 									<p>
 										{item.description.slice(0, 80)}...
-										<Link href={`/place/${item.slug}`}>Readmore</Link>
+										<Link href={`/place/${item.slug.current}`}>Readmore</Link>
 									</p>
 								</div>
 							</div>

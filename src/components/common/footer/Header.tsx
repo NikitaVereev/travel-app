@@ -38,7 +38,7 @@ const navItem: TypeNavItem[] = [
 	},
 	{
 		icon: 'person',
-		link: '/profile',
+		link: '/auth',
 		title: 'Profile',
 	},
 ]

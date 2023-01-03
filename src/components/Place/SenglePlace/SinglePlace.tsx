@@ -10,7 +10,7 @@ const SinglePlace: FC<IPlacePage> = ({ place }) => {
 	return (
 		<div className={styles.wrapper}>
 			<div className={styles.heading}>
-				<Image src={place.bigImage} alt={place.slug} layout='fill' />
+				<img src={urlFor(place.bigImage).url()} alt={place.location.city} />
 				<div className={cn([styles.text], 'wrapper')}>
 					<div>
 						<h1>
@@ -20,10 +20,9 @@ const SinglePlace: FC<IPlacePage> = ({ place }) => {
 						<p>{place.description}</p>
 					</div>
 					<div className={styles.image}>
-						<Image
+						<img
 							src={urlFor(place.imagePath).url()}
 							alt={place.location.city}
-							layout='fill'
 						/>
 					</div>
 				</div>

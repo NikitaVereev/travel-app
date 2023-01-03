@@ -7,9 +7,14 @@ export type TypeLocation = {
 	}
 }
 
+export type TypeSlug = {
+	_type: string
+	current: string
+}
+
 export interface IPlace {
 	_id: string
-	slug: string
+	slug: TypeSlug
 	location: TypeLocation
 	imagePath: string
 	description: string

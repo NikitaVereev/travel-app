@@ -1,7 +1,5 @@
 export const queries = {
 	getPlaces: `*[_type == "place"]`,
 	getPlace: (slug: string) =>
-		`*[_type == "place" && slug.current == "${slug}"][0]{_id, location, imagePath, description, rating, duration}`,
-
-	addToFavorites: (_id: string) => {},
+		`*[_type == "place" && slug.current == "${slug}"][0]{_id,bigImage, location, imagePath, description, rating, duration}`,
 }
