@@ -7,7 +7,7 @@ import { queries } from 'queryis'
 import { client } from '../lib/sanity.client'
 import { createClient } from 'next-sanity'
 
-// const query = `*[_type == "place"]`
+const query = `*[_type == "place"]`
 
 interface IHome {
 	places: IPlace[]
@@ -21,18 +21,12 @@ const HomePage: NextPage<IHome> = ({ places }) => {
 	)
 }
 
-export async function getServerSideProps(context) {
-	const client = createClient({
-		projectId: 'rttcnujz',
-		dataset: 'production',
-		apiVersion: '2021-10-21',
-		useCdn: false,
-	})
-	const query = `*[_type == "place"]`
-	const place = await client.fetch(query)
+export const getStaticProps: GetStaticProps = async () => {
+	const result = await sanityClient.fetch(query)
+
 	return {
 		props: {
-			places: place,
+			places: result,
 		},
 	}
 }

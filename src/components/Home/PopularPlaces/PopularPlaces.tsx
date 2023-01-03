@@ -83,7 +83,6 @@ const PopularPlaces: FC<IPopularPlaces> = ({
 								<img
 									src={urlFor(item.imagePath).url()}
 									alt={item.location.city}
-									layout='fill'
 								/>
 								<Link href={`/place/${item.slug}`}></Link>
 							</div>
