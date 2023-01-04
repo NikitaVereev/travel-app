@@ -73,30 +73,32 @@ const PopularPlaces: FC<IPopularPlaces> = ({
 
 			<div className={styles.itemWrapper}>
 				{places ? (
-					places.map(item => (
-						<motion.div
-							key={item._id}
-							className={styles.item}
-							// variants={fadeIn('right', 'spring', index * 0.3, 0.75)}
-						>
-							<div className={styles.itemImage}>
-								<img
-									src={urlFor(item.imagePath).url()}
-									alt={item.location.city}
-								/>
-								<Link href={`/place/${item.slug.current}`}></Link>
-							</div>
-							<div className={styles.itemHeading}>
-								<h4>{`${item.location.city}, ${item.location.country}`}</h4>
-								<div>
-									<p>
-										{item.description.slice(0, 80)}...
-										<Link href={`/place/${item.slug.current}`}>Readmore</Link>
-									</p>
+					places
+						.map(item => (
+							<motion.div
+								key={item._id}
+								className={styles.item}
+								// variants={fadeIn('right', 'spring', index * 0.3, 0.75)}
+							>
+								<div className={styles.itemImage}>
+									<img
+										src={urlFor(item.imagePath).url()}
+										alt={item.location.city}
+									/>
+									<Link href={`/place/${item.slug.current}`}></Link>
 								</div>
-							</div>
-						</motion.div>
-					))
+								<div className={styles.itemHeading}>
+									<h4>{`${item.location.city}, ${item.location.country}`}</h4>
+									<div>
+										<p>
+											{item.description.slice(0, 80)}...
+											<Link href={`/place/${item.slug.current}`}>Readmore</Link>
+										</p>
+									</div>
+								</div>
+							</motion.div>
+						))
+						.splice(0, 4)
 				) : (
 					<h1>Ничего подобного нету!)</h1>
 				)}

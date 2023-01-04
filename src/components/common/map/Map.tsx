@@ -44,8 +44,10 @@ const Map: FC<{ location: TypeLocation }> = ({ location }) => {
 								<Geography
 									key={geo.rsmKey}
 									geography={geo}
-									fill={isCurrent ? '#eb601e' : '#39373B'}
-									stroke={isCurrent ? 'transparent' : '#2D2B2F'}
+									fill={
+										isCurrent ? 'rgba(155,155,155)' : 'rgba(34, 60, 80, 0.2)'
+									}
+									stroke={isCurrent ? 'transparent' : 'rgba(0, 0, 0, 0.1)'}
 									style={{
 										default: { outline: 'none' },
 										hover: { outline: 'none' },
