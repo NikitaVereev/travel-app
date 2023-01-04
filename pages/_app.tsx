@@ -3,8 +3,14 @@ import type { AppProps } from 'next/app'
 import Layout from '../src/components/common/Layout/Layout'
 import React from 'react'
 import NextProgressBar from 'nextjs-progressbar'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+import { SessionProvider } from 'next-auth/react'
 
-export default function App({ Component, pageProps }: AppProps) {
+export default function App({
+	Component,
+	pageProps: { session, ...pageProps },
+}: AppProps) {
 	return (
 		<>
 			<NextProgressBar
@@ -13,9 +19,12 @@ export default function App({ Component, pageProps }: AppProps) {
 				stopDelayMs={200}
 				height={5}
 			/>
-			<Layout>
-				<Component {...pageProps} />
-			</Layout>
+			<SessionProvider session={session}>
+				<Layout>
+					<Component {...pageProps} />
+					<ToastContainer theme='dark' />
+				</Layout>
+			</SessionProvider>
 		</>
 	)
 }

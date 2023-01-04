@@ -33,7 +33,9 @@ const Auth: FC = () => {
 				redirect: false,
 				...data,
 			})
+			//@ts-ignore
 			if (response.error) {
+				//@ts-ignore
 				toast.error(response.error)
 				return
 			}

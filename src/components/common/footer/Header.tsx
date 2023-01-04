@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 import { FC } from 'react'
 
 import styles from './Header.module.scss'
+import { useSession, signOut } from 'next-auth/react'
 
 type TypeNavItem = {
 	icon: string
@@ -45,6 +46,7 @@ const navItem: TypeNavItem[] = [
 
 const Footer: FC = () => {
 	const { push, pathname } = useRouter()
+	const { data } = useSession()
 	return (
 		<footer className={styles.header}>
 			<nav>
@@ -52,10 +54,14 @@ const Footer: FC = () => {
 					{navItem.map(item => (
 						<li key={item.link}>
 							<button
-								onClick={() => push(item.link)}
+								onClick={() =>
+									item.link === '/auth' && data ? signOut() : push(item.link)
+								}
 								className={pathname === item.link ? styles.active : ''}
 							>
-								<span className={styles.title}>{item.title}</span>
+								<span className={styles.title}>
+									{item.link === '/auth' && data ? 'Logout' : item.title}
+								</span>
 							</button>
 						</li>
 					))}
