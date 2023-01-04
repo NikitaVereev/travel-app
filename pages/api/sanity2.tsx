@@ -7,6 +7,7 @@ export const config: ClientConfig = {
 	projectId: 'rttcnujz',
 	dataset: 'production',
 	apiVersion: '2021-10-21',
+	token: process.env.SANITY_API_TOKEN,
 	useCdn: typeof document !== 'undefined',
 }
 
