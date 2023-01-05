@@ -1,25 +1,28 @@
 import axios from 'axios'
-import { NextApiRequest, NextApiResponse } from 'next'
 
-export default async function handler(
-	req: NextApiRequest,
-	res: NextApiResponse
-) {
-	const options = {
-		method: 'GET',
-		url: 'https://hotels4.p.rapidapi.com/locations/v2/search',
-		params: { query: req.query.searchCity, locale: 'en_US', currency: 'USD' },
-		headers: {
-			'x-rapidapi-host': 'hotels4.p.rapidapi.com',
-			'x-rapidapi-key': process.env.NEXT_PUBLIC_RAPIDAPI_KEY,
-		},
-	}
-	axios
-		.request(options)
-		.then(function (response) {
-			res.status(200).json(response.data)
-		})
-		.catch(function (error) {
-			console.error(error)
-		})
+export const getHotels = async () => {
+	const {
+		data: { data },
+	} = await axios.get(
+		`https://travel-advisor.p.rapidapi.com/locations/search`,
+		{
+			params: {
+				query: 'paris',
+				limit: '30',
+				offset: '0',
+				units: 'km',
+				location_id: '1',
+				currency: 'USD',
+				sort: 'relevance',
+				lang: 'en_US',
+			},
+
+			headers: {
+				'X-RapidAPI-Key': process.env.NEXT_PUBLIC_RAPIDAPI_KEY,
+				'X-RapidAPI-Host': 'travel-advisor.p.rapidapi.com',
+			},
+		}
+	)
+
+	return data
 }
