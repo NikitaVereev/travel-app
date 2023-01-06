@@ -75,10 +75,26 @@ const SinglePlace: FC<IPlacePage> = ({ place }) => {
 								data.result_object.name
 							}
 						</p>
-						<img src={data.result_object.photo.images.original.url} />
+						<img
+							alt='dfdfd'
+							src={
+								//@ts-ignore
+								data.result_object.photo.images.original.url
+							}
+						/>
 						<div className={styles.awards}>
-							<p>{data?.result_object?.awards?.award_type}</p>
-							<p>{data.result_object.awards?.year}</p>
+							<p>
+								{
+									//@ts-ignore
+									data.result_object.awards?.display_name
+								}
+							</p>
+							<p>
+								{
+									//@ts-ignore
+									data.result_object.category.name
+								}
+							</p>
 						</div>
 					</div>
 				))}
