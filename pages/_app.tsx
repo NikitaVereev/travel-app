@@ -21,7 +21,10 @@ export default function App({
 				height={5}
 			/>
 			<SessionProvider session={session}>
-				<AuthProvider Component={Component}>
+				<AuthProvider
+					//@ts-ignore
+					Component={Component}
+				>
 					<Layout>
 						<Component {...pageProps} />
 						<ToastContainer theme='dark' />

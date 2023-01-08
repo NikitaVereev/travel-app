@@ -1,8 +1,10 @@
-import { NextPage } from 'next'
-import Favorite from '../src/components/common/footer/Favorite'
+import { NextPageAuth } from '@/types/auth'
+import Favorite from '../src/components/screens/Favorites/Favorite'
 
-const favorites: NextPage = () => {
+const FavoritePage: NextPageAuth = () => {
 	return <Favorite />
 }
 
-export default favorites
+FavoritePage.isOnlyUser = true
+
+export default FavoritePage

@@ -5,27 +5,6 @@ import { IPlace } from '@/types/place.interface'
 import { TypeSetState } from '@/types/common'
 import uniqBy from 'lodash/uniqBy'
 
-const countries = [
-	{
-		location: 'France',
-	},
-	{
-		location: 'Japan',
-	},
-	{
-		location: 'Russia',
-	},
-	{
-		location: 'USA',
-	},
-	{
-		location: 'Italy',
-	},
-	{
-		location: 'Norway',
-	},
-]
-
 interface IFilters {
 	setPlaces: TypeSetState<IPlace[]>
 	initialPlaces: IPlace[]

@@ -36,6 +36,15 @@ const SinglePlace: FC<IPlacePage> = ({ place }) => {
 	}
 
 	const [responseData, setResponseData] = useState([])
+	const [show, setShow] = useState('activeHotel')
+
+	const handleClick = () => {
+		if (show === '') {
+			setShow('activeHotel')
+		} else if (show === 'activeHotel') {
+			setShow('')
+		}
+	}
 
 	useEffect(() => {
 		getHotels().then(data => {
@@ -63,42 +72,67 @@ const SinglePlace: FC<IPlacePage> = ({ place }) => {
 					</div>
 				</div>
 			</div>
-			<div className={styles.map}>
-				<Map location={place.location} />
+			<div className='wrapper'>
+				<div className={styles.map}>
+					<Map location={place.location} />
+				</div>
+				<h2 className={styles.hotelTitle}>Hotels in {place.location.city}</h2>
+
+				<div className={cn(styles.hotelsWrapper, 'wrapper', show)}>
+					{responseData
+						.filter(data => {
+							//@ts-ignore
+							if (data.result_object.category.name === 'Hotel') {
+								return data
+							}
+						})
+						.map((data, i) => (
+							<div
+								className={styles.hotels}
+								key={i}
+								style={{
+									backgroundImage: `url(${
+										//@ts-ignore
+										data.result_object.photo.images.original.url
+									})`,
+								}}
+							>
+								<p>
+									{
+										//@ts-ignore
+										data.result_object.name
+									}
+								</p>
+
+								<div className={styles.awards}>
+									<p>
+										{
+											//@ts-ignore
+											data.result_object.awards?.display_name
+										}
+									</p>
+									<p>
+										<span>Rating - </span>
+										{
+											//@ts-ignore
+											data.result_object.rating
+										}
+									</p>
+									<p>
+										{
+											//@ts-ignore
+											data.result_object.address
+										}
+									</p>
+								</div>
+							</div>
+						))}
+				</div>
+
+				<button className={styles.btn} onClick={handleClick}>
+					Show more
+				</button>
 			</div>
-			<main>
-				{responseData.map((data, i) => (
-					<div className={styles.hotels} key={i}>
-						<p>
-							{
-								//@ts-ignore
-								data.result_object.name
-							}
-						</p>
-						<img
-							alt='dfdfd'
-							src={
-								//@ts-ignore
-								data.result_object.photo.images.original.url
-							}
-						/>
-						<div className={styles.awards}>
-							<p>
-								{
-									//@ts-ignore
-									data.result_object.awards?.display_name
-								}
-							</p>
-							<p>
-								{
-									//@ts-ignore
-									data.result_object.category.name
-								}
-							</p>
-						</div>
-					</div>
-				))}
-			</main>
 		</div>
 	)
 }

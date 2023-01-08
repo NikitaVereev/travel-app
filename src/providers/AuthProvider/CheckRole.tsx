@@ -7,15 +7,17 @@ const CheckRole: FC<TypeComponentAuthFields> = ({
 	children,
 	Component: { isOnlyUser },
 }) => {
-	const { data } = useSession()
+	const { data, status } = useSession()
 	const { replace, pathname } = useRouter()
 
 	const Children = () => <>{children}</>
 
+	if (status === 'loading') return null
+
 	if (data) return <Children />
 
 	if (isOnlyUser) {
-		pathname !== '/404' && replace('/404')
+		pathname !== '/auth' && replace('/auth')
 		return null
 	}
 

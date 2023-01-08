@@ -41,6 +41,12 @@ a {
 	margin: 0 auto;
 }
 
+.activeHotel {
+	max-height: 500px;
+	overflow: hidden;
+	transition: 0.5s ease;
+}
+
 @media (prefers-color-scheme: dark) {
 	html {
 		color-scheme: dark;

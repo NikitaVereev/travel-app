@@ -19,18 +19,13 @@ const navItem: TypeNavItem[] = [
 	},
 	{
 		icon: 'explore',
-		link: '/explore',
-		title: 'Explore',
+		link: '/favorites',
+		title: 'Favorites',
 	},
 	{
 		icon: 'place',
-		link: '/place/tokio',
-		title: 'Place',
-	},
-	{
-		icon: 'bookmark',
-		link: '.favorites',
-		title: 'Favorite',
+		link: '/profile',
+		title: 'Profile',
 	},
 	{
 		icon: 'hotel',
@@ -40,7 +35,7 @@ const navItem: TypeNavItem[] = [
 	{
 		icon: 'person',
 		link: '/auth',
-		title: 'Profile',
+		title: 'Auth/Reg',
 	},
 ]
 
