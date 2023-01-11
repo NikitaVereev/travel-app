@@ -54,12 +54,17 @@ const SinglePlace: FC<IPlacePage> = ({ place }) => {
 		getHotels().then(data => {
 			setResponseData(data)
 		})
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [])
 
 	return (
 		<div className={styles.wrapper}>
 			<div className={styles.heading}>
-				<img src={urlFor(place.bigImage).url()} alt={place.location.city} />
+				<Image
+					src={urlFor(place.bigImage).url()}
+					alt={place.location.city}
+					layout='fill'
+				/>
 				<div className={cn([styles.text], 'wrapper')}>
 					<div>
 						<div className={styles.headerTop}>
@@ -72,9 +77,10 @@ const SinglePlace: FC<IPlacePage> = ({ place }) => {
 						<p>{place.description}</p>
 					</div>
 					<div className={styles.image}>
-						<img
+						<Image
 							src={urlFor(place.imagePath).url()}
 							alt={place.location.city}
+							layout='fill'
 						/>
 					</div>
 				</div>

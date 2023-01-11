@@ -2,10 +2,10 @@ import { useFavorites } from '@/components/hooks/useFavorites'
 import { FC } from 'react'
 
 const Favorites: FC<{ _id: string }> = ({ _id }) => {
-	const { checkFavorites } = useFavorites()
+	const { checkFavorites, toggleFavorite, isLoading } = useFavorites(_id)
 	return (
 		<div>
-			<button onClick={() => {}}>
+			<button onClick={toggleFavorite} disabled={isLoading}>
 				{checkFavorites(_id) ? (
 					<span>add to favorite</span>
 				) : (
