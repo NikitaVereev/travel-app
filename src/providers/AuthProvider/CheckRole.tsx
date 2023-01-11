@@ -14,6 +14,8 @@ const CheckRole: FC<TypeComponentAuthFields> = ({
 
 	if (status === 'loading') return null
 
+	console.log(data)
+
 	if (data) return <Children />
 
 	if (isOnlyUser) {

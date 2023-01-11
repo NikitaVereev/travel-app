@@ -6,6 +6,8 @@ import cn from 'classnames'
 import Map from '@/common/map/Map'
 import { urlFor } from '@/pages/api/sanity2'
 import axios from 'axios'
+import { useSession } from 'next-auth/react'
+import Favorites from './Favorites'
 
 const SinglePlace: FC<IPlacePage> = ({ place }) => {
 	const getHotels = async () => {
@@ -38,6 +40,8 @@ const SinglePlace: FC<IPlacePage> = ({ place }) => {
 	const [responseData, setResponseData] = useState([])
 	const [show, setShow] = useState('activeHotel')
 
+	const { data } = useSession()
+
 	const handleClick = () => {
 		if (show === '') {
 			setShow('activeHotel')
@@ -58,10 +62,13 @@ const SinglePlace: FC<IPlacePage> = ({ place }) => {
 				<img src={urlFor(place.bigImage).url()} alt={place.location.city} />
 				<div className={cn([styles.text], 'wrapper')}>
 					<div>
-						<h1>
-							{place.location.city}
-							<span>{place.location.country}</span>
-						</h1>
+						<div className={styles.headerTop}>
+							<h1>
+								{place.location.city}
+								<span>{place.location.country}</span>
+							</h1>
+							{data && <Favorites _id={place._id} />}
+						</div>
 						<p>{place.description}</p>
 					</div>
 					<div className={styles.image}>
