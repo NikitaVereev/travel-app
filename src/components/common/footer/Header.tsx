@@ -1,6 +1,5 @@
-import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { FC } from 'react'
+import { FC, memo } from 'react'
 
 import styles from './Header.module.scss'
 import { useSession, signOut } from 'next-auth/react'
@@ -16,11 +15,6 @@ const navItem: TypeNavItem[] = [
 		icon: 'home',
 		link: '/',
 		title: 'Home',
-	},
-	{
-		icon: 'explore',
-		link: '/favorites',
-		title: 'Favorites',
 	},
 	{
 		icon: 'place',
@@ -66,4 +60,4 @@ const Footer: FC = () => {
 	)
 }
 
-export default Footer
+export default memo(Footer)

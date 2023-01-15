@@ -1,7 +1,6 @@
-import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { getHotels } from './api/city'
-export default function Home(props: any) {
+export default function Home() {
 	const [responseData, setResponseData] = useState([])
 
 	useEffect(() => {
@@ -15,7 +14,12 @@ export default function Home(props: any) {
 			<main>
 				<button onClick={getHotels}>Make API call</button>
 				{responseData.map((sr, i) => (
-					<div key={i}>{sr.regionNames.shortName}</div>
+					<div key={i}>
+						{
+							//@ts-ignore
+							sr.regionNames.shortName
+						}
+					</div>
 				))}
 			</main>
 		</div>

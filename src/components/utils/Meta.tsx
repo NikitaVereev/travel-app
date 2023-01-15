@@ -6,10 +6,9 @@ import { onlyText } from './clearText'
 interface IMeta {
 	title: string
 	description?: string
-	image?: string
 }
 
-const Meta: FC<IMeta> = ({ title, description, image }) => {
+const Meta: FC<IMeta> = ({ title, description }) => {
 	const { asPath } = useRouter()
 	const currentUrl = `${process.env.APP_URL}${asPath}`
 
@@ -29,7 +28,6 @@ const Meta: FC<IMeta> = ({ title, description, image }) => {
 					<meta property='og:locale' content='en' />
 					<meta property='og:title' content={title} />
 					<meta property='og:url' content={currentUrl} />
-					<meta property='og:image' content={image || '/logo.jpg'} />
 					<meta property='og:site_name' content='Travel App' />
 					<meta
 						property='og:description'

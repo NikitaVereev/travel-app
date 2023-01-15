@@ -7,7 +7,6 @@ import Map from '@/common/map/Map'
 import { urlFor } from '@/pages/api/sanity2'
 import axios from 'axios'
 import { useSession } from 'next-auth/react'
-import Favorites from './Favorites'
 
 const SinglePlace: FC<IPlacePage> = ({ place }) => {
 	const getHotels = async () => {
@@ -72,7 +71,6 @@ const SinglePlace: FC<IPlacePage> = ({ place }) => {
 								{place.location.city}
 								<span>{place.location.country}</span>
 							</h1>
-							{data && <Favorites _id={place._id} />}
 						</div>
 						<p>{place.description}</p>
 					</div>

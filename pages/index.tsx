@@ -3,11 +3,8 @@ import { sanityClient } from './api/sanity2'
 
 import Home from '../src/components/screens/Home/Home'
 import { IPlace } from '../src/types/place.interface'
-
-import { client } from '../lib/sanity.client'
-import { createClient } from 'next-sanity'
-
 import { queries } from '../src/queryis'
+import Meta from '@/components/utils/Meta'
 
 interface IHome {
 	places: IPlace[]
@@ -16,6 +13,10 @@ interface IHome {
 const HomePage: NextPage<IHome> = ({ places }) => {
 	return (
 		<div>
+			<Meta
+				title='Главная страница'
+				description='Это главная страница данного pet проект'
+			/>
 			<Home initialPlaces={places} />
 		</div>
 	)
